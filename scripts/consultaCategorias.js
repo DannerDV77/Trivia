@@ -5,8 +5,6 @@ export async function showCategories() {
         const response = await fetch(`https://opentdb.com/api_category.php`)
         const data = await response.json()
 
-        console.log(data.trivia_categories);
-
         const insertar = document.createElement("select")
         for (let index = 0; index <= 23; index++) {
 

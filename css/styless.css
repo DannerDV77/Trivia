@@ -1,32 +1,35 @@
-body, html {
-    background:rgb(3, 3, 3);
+html,
+body {
+    background: radial-gradient(circle farthest-corner at 10% 20%, rgb(247, 5, 255) 17.8%, rgb(46, 0, 48) 100.2%);
+    height: 100vh;
+    width: 100vw;
 }
+
 
 #container {
     display: flex;
     justify-content: center;
 }
 
-@media only screen and (min-width: 500px) and (max-width: 1024px){
-    #options{
+
+@media only screen and (min-width: 280px) and (max-width: 1024px) {
+    #options {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
         text-align: center;
         height: 60vh;
-        width: 80vw;
+        width: 90vw;
         margin-top: 6rem;
         border: .2em, black, solid;
         background: radial-gradient(circle farthest-corner at 10% 20%, rgb(229, 149, 245) 17.8%, rgb(247, 150, 200) 100.2%)
     }
+
 }
 
-
-
-
-@media  only screen and (min-width: 1025px) and (max-width: 1300px){
-    #options{
+@media only screen and (min-width: 1025px) and (max-width: 1300px) {
+    #options {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -40,8 +43,8 @@ body, html {
     }
 }
 
-@media  only screen and (min-width: 1301px) {
-    #options{
+@media only screen and (min-width: 1301px) {
+    #options {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -58,11 +61,11 @@ body, html {
 select {
     background: radial-gradient(circle farthest-corner at 10% 20%, rgb(207, 102, 233) 17.8%, rgb(213, 40, 128) 100.2%);
     border: .1em, black, solid;
+    
 }
-
-select:active {
-    background: radial-gradient(circle farthest-corner at 10% 20%, rgb(207, 102, 233) 17.8%, rgb(213, 40, 128) 100.2%);
-}
+option {
+    padding: 5rem; 
+  }
 
 form {
     display: flex;
@@ -97,7 +100,7 @@ form {
     color: rgb(0, 0, 0);
 }
 
-#dificulty button{
+#dificulty button {
     border: .1em, black, solid;
     border-radius: 10px;
     color: rgb(0, 0, 0);
@@ -109,5 +112,6 @@ form {
 
 label {
     font-size: 1.5rem;
+    margin-top: .2em;
+    margin-bottom: .2em;
 }
-

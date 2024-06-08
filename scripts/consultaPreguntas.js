@@ -5,8 +5,8 @@ const easy = document.querySelector("#easy")
 const medium = document.querySelector("#medium")
 const hard = document.querySelector("#hard")
 
-let tipoPregunta
-let dificultad
+let tipoPregunta = multiple
+let dificultad = easy
 
 
 multiple.addEventListener("click", (e) => {
