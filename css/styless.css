@@ -1,6 +1,6 @@
 html,
 body {
-    background: radial-gradient(circle farthest-corner at 10% 20%, rgb(247, 5, 255) 17.8%, rgb(46, 0, 48) 100.2%);
+    background: radial-gradient(circle farthest-corner at 10% 20%, rgb(255, 255, 255) 17.8%, rgb(246, 84, 252) 100.2%);
     height: 100vh;
     width: 100vw;
 }
@@ -23,7 +23,8 @@ body {
         width: 90vw;
         margin-top: 6rem;
         border: .2em, black, solid;
-        background: radial-gradient(circle farthest-corner at 10% 20%, rgb(229, 149, 245) 17.8%, rgb(247, 150, 200) 100.2%)
+        border-radius: 20px;
+        background: transparent;
     }
 
 }
@@ -39,7 +40,8 @@ body {
         width: 40vw;
         margin-top: 6rem;
         border: .2em, black, solid;
-        background: radial-gradient(circle farthest-corner at 10% 20%, rgb(229, 149, 245) 17.8%, rgb(247, 150, 200) 100.2%)
+        border-radius: 20px;
+        background: transparent;
     }
 }
 
@@ -54,7 +56,8 @@ body {
         width: 25vw;
         margin-top: 6rem;
         border: .2em, black, solid;
-        background: radial-gradient(circle farthest-corner at 10% 20%, rgb(229, 149, 245) 17.8%, rgb(247, 150, 200) 100.2%)
+        border-radius: 20px;
+        background: transparent;
     }
 }
 

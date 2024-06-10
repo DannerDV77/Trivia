@@ -40,6 +40,9 @@ document.querySelector("#start").addEventListener("click", (e) => {
 
                 if (nodata >= 1) {
                     modal1.showModal()
+                    setTimeout(() => {
+                        window.location.reload()
+                    }, 2000);
                 }else {
                     const hideOptions = document.querySelector("#options")
 
@@ -51,8 +54,6 @@ document.querySelector("#start").addEventListener("click", (e) => {
                     showQuestions.classList.remove("ocultar")
                     showQuestions.classList.add("mostrar")
 
-                    console.log("si funciono :)");
-
                     imprimir()
                 }
 
@@ -62,10 +63,6 @@ document.querySelector("#start").addEventListener("click", (e) => {
         }
         opciones()
     }
-})
-
-document.querySelector("#closeModal").addEventListener("click", () => {
-    window.location.reload()
 })
 
 console.log(questions);
