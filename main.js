@@ -32,7 +32,7 @@ document.querySelector("#start").addEventListener("click", (e) => {
                 const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${categoria}&difficulty=${dificultad}&type=${tipoPregunta}`)
                 const data = await response.json()
                 questions.push(...data.results)
-                
+                console.log(questions);
 
 
                 const nodata = data.response_code
@@ -40,8 +40,13 @@ document.querySelector("#start").addEventListener("click", (e) => {
                 if (nodata >= 1) {
                     modal1.showModal()
                 }else {
-                    sessionStorage.setItem("questions", JSON.stringify(questions));
-                    window.location.href = "./html/preguntas.html"
+                    const hideOptions = document.querySelector("#options")
+                    hideOptions.id.style.remove("display: flex")
+
+                    hideOptions.classList.add("ocultar")
+                    hideOptions.id.remove("options")
+
+                    console.log("si funciono :)");
                 }
 
             } catch (error) {
