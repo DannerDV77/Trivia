@@ -3,7 +3,7 @@ import { valor } from "./scripts/consultaPreguntas.js";
 
 const modal1 = document.querySelector("#modal1")
 const modal2 = document.querySelector("#modal2")
-
+const questions = []
 
 showCategories()
 
@@ -14,7 +14,7 @@ document.querySelector("#start").addEventListener("click", (e) => {
     const nodata = valor.categoria
     if (nodata == 0) {
 
-        
+
         modal2.showModal()
         setTimeout(() => {
             window.location.reload()
@@ -31,22 +31,25 @@ document.querySelector("#start").addEventListener("click", (e) => {
             try {
                 const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${categoria}&difficulty=${dificultad}&type=${tipoPregunta}`)
                 const data = await response.json()
-                console.log(data)
+                questions.push(...data.results)
+                
+
 
                 const nodata = data.response_code
 
-                if(nodata == 1){
+                if (nodata >= 1) {
                     modal1.showModal()
+                }else {
+                    sessionStorage.setItem("questions", JSON.stringify(questions));
+                    window.location.href = "./html/preguntas.html"
                 }
 
             } catch (error) {
-
+                console.log(error);
             }
         }
         opciones()
     }
-
-
 })
 
 document.querySelector("#closeModal").addEventListener("click", () => {
