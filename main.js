@@ -1,5 +1,6 @@
 import { showCategories } from "./scripts/consultaCategorias.js";
 import { valor } from "./scripts/consultaPreguntas.js";
+import { imprimir } from "./scripts/preguntas.js";
 
 const modal1 = document.querySelector("#modal1")
 const modal2 = document.querySelector("#modal2")
@@ -51,6 +52,8 @@ document.querySelector("#start").addEventListener("click", (e) => {
                     showQuestions.classList.add("mostrar")
 
                     console.log("si funciono :)");
+
+                    imprimir()
                 }
 
             } catch (error) {

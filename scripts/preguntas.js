@@ -1,26 +1,6 @@
-import { valor } from "./consultaPreguntas.js";
- import { questions } from "../main.js";       
-let categoria = valor.categoria
-let dificultad = valor.dificultad
-let tipoPregunta = valor.tipoPregunta
-console.log(questions);
+import { questions } from "../main.js";  
 
-async function opciones() {
-    try {
-        const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${categoria}&difficulty=${dificultad}&type=${tipoPregunta}`)
-        const data = await response.json()
-        questions.push(...data.results)
-        console.log(questions);
-    }catch(error){
-        console.log(error);
-    } 
-    
+export function imprimir(){
+    console.log(questions);
 }
-opciones()  
-
-
-
-
-
-
-    
+ 
