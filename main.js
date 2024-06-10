@@ -3,7 +3,7 @@ import { valor } from "./scripts/consultaPreguntas.js";
 
 const modal1 = document.querySelector("#modal1")
 const modal2 = document.querySelector("#modal2")
-const questions = []
+export const questions = []
 
 showCategories()
 
@@ -32,7 +32,7 @@ document.querySelector("#start").addEventListener("click", (e) => {
                 const response = await fetch(`https://opentdb.com/api.php?amount=10&category=${categoria}&difficulty=${dificultad}&type=${tipoPregunta}`)
                 const data = await response.json()
                 questions.push(...data.results)
-                console.log(questions);
+                
 
 
                 const nodata = data.response_code
@@ -41,10 +41,14 @@ document.querySelector("#start").addEventListener("click", (e) => {
                     modal1.showModal()
                 }else {
                     const hideOptions = document.querySelector("#options")
-                    hideOptions.id.style.remove("display: flex")
 
+                    hideOptions.classList.remove("mostrar")
                     hideOptions.classList.add("ocultar")
-                    hideOptions.id.remove("options")
+
+                    const showQuestions = document.querySelector("#question")
+
+                    showQuestions.classList.remove("ocultar")
+                    showQuestions.classList.add("mostrar")
 
                     console.log("si funciono :)");
                 }
@@ -60,3 +64,5 @@ document.querySelector("#start").addEventListener("click", (e) => {
 document.querySelector("#closeModal").addEventListener("click", () => {
     window.location.reload()
 })
+
+console.log(questions);
