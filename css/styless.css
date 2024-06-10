@@ -14,7 +14,7 @@ body {
 
 @media only screen and (min-width: 280px) and (max-width: 1024px) {
     #options {
-        display: flex;
+        
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
@@ -30,7 +30,7 @@ body {
 
 @media only screen and (min-width: 1025px) and (max-width: 1300px) {
     #options {
-        display: flex;
+        
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
@@ -45,7 +45,7 @@ body {
 
 @media only screen and (min-width: 1301px) {
     #options {
-        display: flex;
+        
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: center;
@@ -118,4 +118,8 @@ label {
 
 .ocultar {
     display: none;
+}
+
+.mostrar {
+    display: flex;
 }
