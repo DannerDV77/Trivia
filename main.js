@@ -64,5 +64,3 @@ document.querySelector("#start").addEventListener("click", (e) => {
         opciones()
     }
 })
-
-console.log(questions);
