@@ -12,9 +12,11 @@ let contador = 0
 const contendorBtn = document.createElement("div")
 
 export function imprimir() {
+    console.log(`Puntaje: ${aciertos}`)
+    console.log(`Pregunta: ${contador + 1}`);
 
     if (contador === 10) {
-        
+
         const reultado = document.createElement("p")
         reultado.innerHTML = `Puntaje: ${aciertos}`
         contResult.appendChild(reultado)
@@ -37,7 +39,7 @@ export function imprimir() {
         let tipoPregunta = questions[0].type
 
         pregunta.innerHTML = `Question: ${question}`
-        
+
 
         if (tipoPregunta == "multiple") {
             contendorBtn.id = "respuestas"
@@ -113,24 +115,24 @@ export function imprimir() {
             });
 
 
-           
 
-        } else if (tipoPregunta == "boolean") {
-            
+
+        } else if (tipoPregunta === "boolean") {
+
             contendorBtn.id = "respuestas"
-            contendorBtn.innerHTML = `<button id="btn1">True</button>
-                    <button id="btn2">False</button>`
+            contendorBtn.innerHTML = `<button id="btnTof1">True</button>
+                    <button id="btnTof2">False</button>`
 
             contAnsowers.appendChild(contendorBtn)
 
-           
 
-            const btntrue = document.querySelector("#btn1")
-            
+
+            const btntrue = document.querySelector("#btnTof1")
+
 
             btntrue.addEventListener('click', () => {
                 const validarRespuesta = questions[contador].correct_answer
-               
+
                 if (validarRespuesta === 'True') {
 
                     aciertos++
@@ -149,7 +151,7 @@ export function imprimir() {
                         imprimir()
                         return
                     }, 2000);
-                }else {
+                } else {
                     contador++
 
                     modalBad.showModal()
@@ -169,45 +171,48 @@ export function imprimir() {
                 }
             }
             )
+
+            const btnfalse = document.querySelector("#btnTof2")
+            btnfalse.addEventListener('click', () => {
+                const validarRespuesta = questions[contador].correct_answer
+                if (validarRespuesta === 'False') {
+                    aciertos++
+                    contador++
+                    modalGood.showModal()
+
+                    setTimeout(() => {
+                        pregunta.innerHTML = ``
+                        contendorBtn.innerHTML = ``
+
+                        contAnsowers.appendChild(contendorBtn)
+                        const removecontendorBtn = document.querySelector("#respuestas")
+                        removecontendorBtn.remove()
+                        modalGood.close()
+
+                        imprimir()
+                        return
+                    }, 2000);
+                } else {
+                    contador++
+
+                    modalBad.showModal()
+
+                    setTimeout(() => {
+                        pregunta.innerHTML = ``
+                        contendorBtn.innerHTML = ``
+
+                        contAnsowers.appendChild(contendorBtn)
+                        const removecontendorBtn = document.querySelector("#respuestas")
+                        removecontendorBtn.remove()
+                        modalBad.close()
+
+                        imprimir()
+                        return
+                    }, 3000);
+                }
+            })
         }
-        const btnfalse = document.querySelector("#btn2")
-        btnfalse.addEventListener('click', () => {
-            const validarRespuesta = questions[contador].correct_answer
-            if (validarRespuesta === 'False') {
-                aciertos++
-                contador++
-                modalGood.showModal()
 
-                setTimeout(() => {
-                    pregunta.innerHTML = ``
-                    contendorBtn.innerHTML = ``
-
-                    contAnsowers.appendChild(contendorBtn)
-                    const removecontendorBtn = document.querySelector("#respuestas")
-                    removecontendorBtn.remove()
-                    modalGood.close()
-
-                    imprimir()
-                    return
-                }, 2000);
-            }else {
-                contador++
-
-                modalBad.showModal()
-
-                setTimeout(() => {
-                    pregunta.innerHTML = ``
-                    contendorBtn.innerHTML = ``
-
-                    contAnsowers.appendChild(contendorBtn)
-                    const removecontendorBtn = document.querySelector("#respuestas")
-                    removecontendorBtn.remove()
-                    modalBad.close()
-
-                    imprimir()
-                    return
-                }, 3000);
-    }})
     }
 }
 
