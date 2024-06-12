@@ -9,6 +9,7 @@ const contResult = document.querySelector("#contResult")
 
 let aciertos = 0
 let contador = 0
+const contendorBtn = document.createElement("div")
 
 export function imprimir() {
 
@@ -36,7 +37,7 @@ export function imprimir() {
         let tipoPregunta = questions[0].type
 
         pregunta.innerHTML = `Question: ${question}`
-        const contendorBtn = document.createElement("div")
+        
 
         if (tipoPregunta == "multiple") {
             contendorBtn.id = "respuestas"
