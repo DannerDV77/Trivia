@@ -13,7 +13,7 @@ let contador = 0
 export function imprimir() {
 
     if (contador === 10) {
-        console.log(`fin de la trivia. puntuacion: ${aciertos}`)
+        
         const reultado = document.createElement("p")
         reultado.innerHTML = `Puntaje: ${aciertos}`
         contResult.appendChild(reultado)
@@ -36,9 +36,9 @@ export function imprimir() {
         let tipoPregunta = questions[0].type
 
         pregunta.innerHTML = `Question: ${question}`
+        const contendorBtn = document.createElement("div")
 
         if (tipoPregunta == "multiple") {
-            const contendorBtn = document.createElement("div")
             contendorBtn.id = "respuestas"
             contendorBtn.innerHTML = `
         <button id="btn1"></button>
@@ -112,25 +112,25 @@ export function imprimir() {
             });
 
 
-            console.log(correct_answer);
+           
 
         } else if (tipoPregunta == "boolean") {
-            const contendorBtn = document.createElement("div")
+            
             contendorBtn.id = "respuestas"
             contendorBtn.innerHTML = `<button id="btn1">True</button>
                     <button id="btn2">False</button>`
 
             contAnsowers.appendChild(contendorBtn)
 
-            console.log(questions);
+           
 
             const btntrue = document.querySelector("#btn1")
             
 
             btntrue.addEventListener('click', () => {
                 const validarRespuesta = questions[contador].correct_answer
-                console.log(validarRespuesta);
-                if (validarRespuesta === toString(true)) {
+               
+                if (validarRespuesta === 'True') {
 
                     aciertos++
                     contador++
@@ -172,7 +172,7 @@ export function imprimir() {
         const btnfalse = document.querySelector("#btn2")
         btnfalse.addEventListener('click', () => {
             const validarRespuesta = questions[contador].correct_answer
-            if (validarRespuesta == toString(false)) {
+            if (validarRespuesta === 'False') {
                 aciertos++
                 contador++
                 modalGood.showModal()
