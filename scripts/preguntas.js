@@ -55,13 +55,13 @@ export function imprimir() {
 
             let indiceRespuestaCorrecta;
 
-            
+
             indiceRespuestaCorrecta = respuestas.findIndex(respuesta => respuesta === correct_answer);
 
             const botones = contendorBtn.querySelectorAll("button");
             botones.forEach((button, index) => {
                 button.textContent = respuestas[index];
-                
+
                 if (respuestas[index] === correct_answer) {
                     button.dataset.correcta = true;
                 } else {
@@ -122,13 +122,91 @@ export function imprimir() {
 
             contAnsowers.appendChild(contendorBtn)
 
-            const btn1 = document.querySelector("#btn1")
-            const btn2 = document.querySelector("#btn2")
+            console.log(questions);
 
+            const btntrue = document.querySelector("#btn1")
+            
+
+            btntrue.addEventListener('click', () => {
+                const validarRespuesta = questions[contador].correct_answer
+                console.log(validarRespuesta);
+                if (validarRespuesta === toString(true)) {
+
+                    aciertos++
+                    contador++
+                    modalGood.showModal()
+
+                    setTimeout(() => {
+                        pregunta.innerHTML = ``
+                        contendorBtn.innerHTML = ``
+
+                        contAnsowers.appendChild(contendorBtn)
+                        const removecontendorBtn = document.querySelector("#respuestas")
+                        removecontendorBtn.remove()
+                        modalGood.close()
+
+                        imprimir()
+                        return
+                    }, 2000);
+                }else {
+                    contador++
+
+                    modalBad.showModal()
+
+                    setTimeout(() => {
+                        pregunta.innerHTML = ``
+                        contendorBtn.innerHTML = ``
+
+                        contAnsowers.appendChild(contendorBtn)
+                        const removecontendorBtn = document.querySelector("#respuestas")
+                        removecontendorBtn.remove()
+                        modalBad.close()
+
+                        imprimir()
+                        return
+                    }, 3000);
+                }
+            }
+            )
         }
+        const btnfalse = document.querySelector("#btn2")
+        btnfalse.addEventListener('click', () => {
+            const validarRespuesta = questions[contador].correct_answer
+            if (validarRespuesta == toString(false)) {
+                aciertos++
+                contador++
+                modalGood.showModal()
+
+                setTimeout(() => {
+                    pregunta.innerHTML = ``
+                    contendorBtn.innerHTML = ``
+
+                    contAnsowers.appendChild(contendorBtn)
+                    const removecontendorBtn = document.querySelector("#respuestas")
+                    removecontendorBtn.remove()
+                    modalGood.close()
+
+                    imprimir()
+                    return
+                }, 2000);
+            }else {
+                contador++
+
+                modalBad.showModal()
+
+                setTimeout(() => {
+                    pregunta.innerHTML = ``
+                    contendorBtn.innerHTML = ``
+
+                    contAnsowers.appendChild(contendorBtn)
+                    const removecontendorBtn = document.querySelector("#respuestas")
+                    removecontendorBtn.remove()
+                    modalBad.close()
+
+                    imprimir()
+                    return
+                }, 3000);
+    }})
     }
-
-
-
 }
 
